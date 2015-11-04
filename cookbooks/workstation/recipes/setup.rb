@@ -7,6 +7,10 @@ package 'tree'
 package 'git'
 
 file '/etc/motd' do
-  content 'Property of Boeing'
+  content "
+      IPADDRESS: #{node["ipaddress"]}
+      HOSTNAME : #{node["hostname"]}
+      MEMORY : #{node["memory"]["total"]}
+      CPU : #{node["cpu"]["0"]["mhz"]}"
   action :create
 end
